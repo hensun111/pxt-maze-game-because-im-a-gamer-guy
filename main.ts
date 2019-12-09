@@ -1,5 +1,8 @@
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+    info.setLife(0)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    info.changeScoreBy(10000000000000000)
+    info.changeScoreBy(10)
     for (let index = 0; index < 4; index++) {
         otherSprite.setPosition(Math.randomRange(0, 10), Math.randomRange(0, 10))
     }
@@ -136,6 +139,8 @@ let Enemy_2 = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 `, SpriteKind.Enemy)
+Enemy_2.follow(mySprite)
+Enemy_2.setPosition(Math.randomRange(32, 100), Math.randomRange(32, 100))
 for (let index = 0; index < 100; index++) {
     your_mom = sprites.create(img`
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
